@@ -50,8 +50,6 @@ function Cart() {
       </div>
     )
   }
-
-
   return (
     <section style={{ background: "#f2f5f9", minHeight: '85vh' }}>
       <div className="container-md  pt-5">

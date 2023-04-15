@@ -48,6 +48,7 @@ function Review({ unique }) {
 
 const EachReview = ({ _id, user, text, like, dislike, rating }) => {
   const { user: realUser, dispatch } = useAuthContext()
+  console.log(realUser)
 
   const [liked, setLike] = useState(realUser.detail.likedComment.includes(_id));
   const [disliked, setDislike] = useState(realUser.detail.dislikedComment.includes(_id));

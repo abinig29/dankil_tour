@@ -1,8 +1,7 @@
-
 import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
-import cors from "cors"
+import cors from "cors";
 dotenv.config();
 
 // all routers
@@ -20,16 +19,18 @@ const app = express();
 app.use(express.json());
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-        "Access-Control-Allow-Headers",
-        "Authorization, Origin, X-Requested-With, Content-Type, Accept");
-    res.setHeader("Access-Control-Allow-Methods",
-        "GET, POST, PATCH, DELETE, OPTIONS");
-    // res.setHeader("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
-    next();
-})
-
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Authorization, Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, DELETE, OPTIONS"
+  );
+  // res.setHeader("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // use routers
 app.use("/api/package", packageRouter);
@@ -43,31 +44,35 @@ app.use("/api/booking", bookingRouter);
 // username : touretdb
 // passowrd: admin
 
-mongoose.set('strictQuery', false);
+mongoose.set("strictQuery", false);
 
 async function connectToDb() {
-    try {
-        await mongoose.connect(process.env.MONGODBURL, { useNewUrlParser: true, useUnifiedTopology: true });
-        console.log(`Connected to database successfully`);
-    } catch (error) {
-        console.log(`this is an error message`);
-        console.log(error.message);
-    }
+  try {
+    await mongoose.connect(process.env.MONGODBURL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log(`Connected to database successfully`);
+  } catch (error) {
+    console.log(`this is an error message`);
+    console.log(error.message);
+  }
 }
 
-
 async function startServer() {
-    try {
-        app.use(cors({
-            origin: 'http://localhost:3000'
-        }));
-        app.listen(process.env.PORT, (error) => {
-            console.log(error);
-        });
-        console.log((`Listening through port ${process.env.PORT}`));
-    } catch (error) {
-        console.log(error.message);
-    }
+  try {
+    app.use(
+      cors({
+        origin: "http://localhost:3000",
+      })
+    );
+    app.listen(process.env.PORT, (error) => {
+      console.log(error);
+    });
+    console.log(`Listening through port ${process.env.PORT}`);
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
 connectToDb();
