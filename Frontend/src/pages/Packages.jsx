@@ -11,7 +11,7 @@ const Packages = () => {
   const [dropDown, setDropDown] = useState({});
   const [noResult, setNoResult] = useState(false);
   const [page, setPage] = useState(1);
-  const { data } = useFetch(`http://localhost:5000/api/package?page=${page}`, page)
+  const { data } = useFetch(`https://dankil.onrender.com/api/package?page=${page}`, page)
   useEffect(() => {
     if (data && page === 1) {
       setDatas([...data]
@@ -56,7 +56,7 @@ const Packages = () => {
     }
 
     const response = await fetch(
-      `http://localhost:5000/api/package?${type && `type=${type}`}&${price && `priceRange=${price}`
+      `https://dankil.onrender.com/api/package?${type && `type=${type}`}&${price && `priceRange=${price}`
       }&${rate && `rating=${rate}`}`
     );
     const result = await response.json();

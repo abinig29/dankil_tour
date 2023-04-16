@@ -17,11 +17,11 @@ const Home = () => {
     img: "https://cdn.bunniktours.com.au/public/posts/images/Africa/Lalibela%201%20%284%29-feature.JPG",
     text: "Ethiopia is home to the lowest place on the African continent, the Danakil Depression.The depression is at the junction of three tectonic plates in the Horn of Africa, and sits at approximately 125 metres below sea level. At 200 kilometres long by 50 metres wide, this relatively small desert is also home to roughly 25% of Africa’s volcanoes!",
   };
-  const { data: recentpkg } = useFetch("http://localhost:5000/api/package?limit=6")
-  const { data: popularPkg } = useFetch("http://localhost:5000/api/package?sort=-rating&limit=6")
+  const { data: recentpkg } = useFetch("https://dankil.onrender.com/api/package?limit=6")
+  const { data: popularPkg } = useFetch("https://dankil.onrender.com/api/package?sort=-rating&limit=6")
   const [s_name, setName] = useState("");
   const [cityList, setCityList] = useState([]);
-  const { data } = useFetch(`http://localhost:5000/api/package?location=${s_name}&limit=5`, s_name)
+  const { data } = useFetch(`https://dankil.onrender.com/api/package?location=${s_name}&limit=5`, s_name)
 
   const filterData = async () => {
     if (s_name) {

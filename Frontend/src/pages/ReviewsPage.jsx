@@ -19,7 +19,7 @@ const ReviewsPage = () => {
   const packageid = id;
   const rateStars = Array(5).fill(0);
   const { user } = useAuthContext();
-  const { data: site } = useFetch(`http://localhost:5000/api/package/${id}`)
+  const { data: site } = useFetch(`https://dankil.onrender.com/api/package/${id}`)
 
   const handelSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +29,7 @@ const ReviewsPage = () => {
       return;
     }
     const response = await fetch(
-      `http://localhost:5000/api/comment
+      `https://dankil.onrender.com/api/comment
       `,
       {
         method: "POST",
@@ -45,7 +45,7 @@ const ReviewsPage = () => {
       }
     );
     const response1 = await fetch(
-      `http://localhost:5000/api/package/${id}
+      `https://dankil.onrender.com/api/package/${id}
       `,
       {
         method: "PATCH",

@@ -11,7 +11,7 @@ import useFetch from "../customHook/useFetch";
 
 function PackageDetail() {
   const { id } = useParams();
-  const { data: site } = useFetch(`http://localhost:5000/api/package/${id}`)
+  const { data: site } = useFetch(`https://dankil.onrender.com/api/package/${id}`)
   const [itemAdded, setItemAdded] = useState(false);
   const { state, dispatch } = useContext(CartContext);
   const { user } = useAuthContext();
@@ -23,7 +23,7 @@ function PackageDetail() {
       return;
     }
     const response = await fetch(
-      `http://localhost:5000/api/wishlist
+      `https://dankil.onrender.com/api/wishlist
       `,
       {
         method: "POST",

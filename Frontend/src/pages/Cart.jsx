@@ -9,7 +9,7 @@ function Cart() {
   const removeFromcart = async (item) => {
     dispatch({ type: "REMOVE", item })
     const response = await fetch(
-      `http://localhost:5000/api/wishlist/${item._id}
+      `https://dankil.onrender.com/api/wishlist/${item._id}
       `,
       {
         method: "DELETE",

@@ -23,7 +23,7 @@ export const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, []);
   const { user } = useAuthContext();
   const { data } = useFetch(
-    `http://localhost:5000/api/wishlist
+    `https://dankil.onrender.com/api/wishlist
     `,
     user
   );

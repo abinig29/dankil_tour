@@ -10,7 +10,7 @@ function Rooms({ id, image, name, isRoom, setIsRoom, description }) {
 
 
   const fetchRoom = async () => {
-    const res = await fetch(`http://localhost:5000/api/hotel/${id}/room?taken=true`, {
+    const res = await fetch(`https://dankil.onrender.com/api/hotel/${id}/room?taken=true`, {
       headers: { Authorization: `Bearer ${user.token}` },
     });
     setBook({ ...book, hotelId: id })

@@ -18,8 +18,8 @@ function Book() {
   const [roomSelect, setRoomSelect] = useState(false);
   const [totalPrice, setTotal] = useState(0);
   const { user } = useAuthContext();
-  const { data: hotels } = useFetch(`http://localhost:5000/api/package/${id}/hotel`)
-  const { data: pkg } = useFetch(`http://localhost:5000/api/package/${id}`)
+  const { data: hotels } = useFetch(`https://dankil.onrender.com/api/package/${id}/hotel`)
+  const { data: pkg } = useFetch(`https://dankil.onrender.com/api/package/${id}`)
 
   const handleSumbit = async (e) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ function Book() {
       price: totalPrice,
     };
     const response = await fetch(
-      `http://localhost:5000/api/booking/
+      `https://dankil.onrender.com/api/booking/
       `,
       {
         method: "POST",
@@ -54,7 +54,7 @@ function Book() {
     };
     console.log(pkg.pricePerAdult, parseInt(numTour));
     const response = await fetch(
-      `http://localhost:5000/api/booking/price/
+      `https://dankil.onrender.com/api/booking/price/
     `,
       {
         method: "POST",

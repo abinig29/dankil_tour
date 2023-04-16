@@ -15,7 +15,7 @@ function Review({ unique }) {
 
   const fetchReview = async () => {
     const response = await fetch(
-      `http://localhost:5000/api/package/${unique}/comment`
+      `https://dankil.onrender.com/api/package/${unique}/comment`
     );
     const result = await response.json();
 
